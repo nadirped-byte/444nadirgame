@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Shinobi Draft</string>
+    <string name="title_activity_main">Shinobi Draft</string>
+    <string name="package_name">com.shinobidraft.game</string>
+    <string name="custom_url_scheme">com.shinobidraft.game</string>
+</resources>

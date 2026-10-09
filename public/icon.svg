@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#1E1B4B" />
+      <stop offset="50%" stopColor="#090D16" />
+      <stop offset="100%" stopColor="#3B0764" />
+    </linearGradient>
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FDE047" />
+      <stop offset="45%" stopColor="#A855F7" />
+      <stop offset="100%" stopColor="#EA580C" />
+    </linearGradient>
+    <linearGradient id="qGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#FFFFFF" />
+      <stop offset="50%" stopColor="#FDE047" />
+      <stop offset="100%" stopColor="#F97316" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" />
+  <rect x="76" y="46" width="360" height="420" rx="44" fill="#090D16" stroke="url(#frameGrad)" strokeWidth="18" />
+  <circle cx="256" cy="256" r="118" stroke="#A855F7" strokeWidth="8" strokeDasharray="18 12" opacity="0.75" />
+  <circle cx="256" cy="256" r="88" fill="#3B0764" fillOpacity="0.55" stroke="#F97316" strokeWidth="5" />
+  <text x="256" y="302" textAnchor="middle" fill="url(#qGrad)" fontFamily="sans-serif" fontWeight="900" fontSize="145">؟</text>
+</svg>

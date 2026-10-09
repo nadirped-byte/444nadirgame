@@ -1,0 +1,6 @@
+{
+  "name": "Shinobi Draft Card Game",
+  "description": "Shinobi Draft Card Game: لعبة بطاقات تكتيكية احترافية في عالم ناروتو تضم 6 أطوار لعب متنوعة (الشينوبي الخفي، الفرصة الثانية، مزاد الشينوبي، البكجات، خدعة الظل، وتحدي الزعيم).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
