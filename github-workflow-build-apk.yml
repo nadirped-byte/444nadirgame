@@ -1,55 +1,43 @@
-name: Build Shinobi Draft Android APK (v1.0.0)
+name: Build Shinobi Draft APK
 
 on:
-  push:
-    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
-  build-apk:
-    name: Build Native Android APK
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
 
-      - name: Setup Java JDK 21 for Android Gradle
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '21'
+          distribution: temurin
+          java-version: 21
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Install dependencies
+        run: npm install
 
-      - name: Install Dependencies & Build Game Assets
+      - name: Build web application
+        run: npm run build
+
+      - name: Sync Android project
+        run: npx cap sync android
+
+      - name: Build APK
         run: |
-          npm install
-          npm run build
-          npx cap sync android
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
-      - name: Grant Execute Permission for Gradlew
-        working-directory: ./android
-        run: chmod +x gradlew
-
-      - name: Build Standalone Android APK (Debug & Release)
-        working-directory: ./android
-        run: ./gradlew assembleDebug
-
-      - name: Rename APK to Shinobi-Draft-v1.0.0.apk
-        run: |
-          cp android/app/build/outputs/apk/debug/app-debug.apk ./Shinobi-Draft-v1.0.0.apk
-
-      - name: Upload Ready-to-Install Android APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Shinobi-Draft-v1.0.0-APK
-          path: ./Shinobi-Draft-v1.0.0.apk
-          if-no-files-found: error
+          name: Shinobi-Draft-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
